@@ -1,13 +1,12 @@
-import time
+from setuptools import setup, find_packages
 
-def main():
-    try:
-        seconds = int(input("타이머 시간(초)을 입력하세요: "))
-        print(f"{seconds}초 동안 타이머를 시작합니다...")
-        time.sleep(seconds)
-        print("타이머 종료!")
-    except ValueError:
-        print("숫자를 입력해주세요.")
-
-if __name__ == "__main__":
-    main()
+setup(
+    name="timerapp",
+    version="0.1",
+    packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'timer = timerapp.__main__:main',
+        ]
+    },
+)
